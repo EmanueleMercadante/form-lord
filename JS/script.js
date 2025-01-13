@@ -27,7 +27,7 @@ form.addEventListener('submit', function(e) {
   const tempoGiornoVal = document.getElementById('tempo_giorno').value;
   const obiettiviVal = document.getElementById('obiettivi').value;
   const cosaDisposizioneVal = document.getElementById('cosa_disposizione').value;
-  const eserciziFamigliariVal = document.getElementById('esercizi_famigliari').value;
+  const eserciziFamiliariVal = document.getElementById('esercizi_familiari').value;
   const problemiArticolariVal = document.getElementById('problemi_articolari').value;
   const condizioniFisicheVal = document.getElementById('condizioni_fisiche').value;
 
@@ -51,7 +51,7 @@ form.addEventListener('submit', function(e) {
     tempo_giorno: tempoGiornoVal,
     obiettivi: obiettiviVal,
     cosa_disposizione: cosaDisposizioneVal,
-    esercizi_famigliari: eserciziFamigliariVal,
+    esercizi_familiari: eserciziFamiliariVal,
     problemi_articolari: problemiArticolariVal,
     condizioni_fisiche: condizioniFisicheVal
   };
