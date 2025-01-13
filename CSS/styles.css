@@ -397,6 +397,9 @@ button:hover {
     .mobile {
         display: block;
     }
+    .iti__country-list {
+        max-width: 80vw;
+    }
 }
 
 
