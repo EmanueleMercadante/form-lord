@@ -9,6 +9,9 @@ body {
     font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
+.mobile {
+    display: none;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -19,10 +22,11 @@ body {
 }
 /* Banner con bordo decorativo */
 .banner {
-    margin-top: 40px;
+    margin-top: 20px;
     border: 2px solid #FFD700;
     padding: 20px;
     position: relative;
+    margin-bottom: 40px;
 }
 .banner::before {
     content: '';
@@ -41,8 +45,7 @@ body {
 }
 /* Logo e testo banner */
 .logo {
-    margin-bottom: 20px;
-    height: 18vh;
+    height: 24vh;
     margin-left: auto;
     margin-right: auto;
 }
@@ -180,7 +183,7 @@ button:hover {
     position: absolute;
     margin-left: 22%;
     margin-right: auto;
-    max-width: 500px;
+    max-width: 340px;
 }
 
 
@@ -346,5 +349,90 @@ button:hover {
   
   .footer a:hover {
     text-decoration: underline;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Stili per dispositivi con una larghezza massima di 768px (tablet) */
+@media (max-width: 768px) {
+    .team-section {
+        margin-top: 8vh;
+        margin-bottom: 0;
+    }
+    .team-img {
+        margin-left: 43%;
+        max-width: 57%;
+    }
+    .button-container {
+        margin: 30px 0 50px
+    }
+    .container {
+        padding: 0;
+    }
+
+    .team-text .features p {
+        font-size: 17px;
+    }
+    .team-text .features {
+        padding-left: 10px;
+    }
+    .mobile {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Spinner dorato su sfondo nero */
+.spinner {
+    display: inline-block;
+    width: 18px;      /* regolali a piacere */
+    height: 18px;
+    border: 2px solid #000;      /* cerchio scuro */
+    border-top: 2px solid #FFD700; /* parte superiore dorata */
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 8px;
+    vertical-align: middle; 
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg);   }
+    100% { transform: rotate(360deg); }
   }
   

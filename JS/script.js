@@ -1,77 +1,90 @@
 (function() {
-    emailjs.init("_ja7Jcc47WQPY66Ry"); // <-- Sostituisci con la tua chiave
-  })();
+  emailjs.init("_ja7Jcc47WQPY66Ry"); // <-- Sostituisci con la tua chiave
+})();
 
+// Inizializza intl-tel-input
+const phoneInputField = document.querySelector("#telefono");
+const phoneInput = window.intlTelInput(phoneInputField, {
+  initialCountry: "it",                   
+  preferredCountries: ["it", "us", "gb"], 
+  separateDialCode: true,                 
+  utilsScript:
+    "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+});
 
+// Cattura l'evento submit del form
+const form = document.getElementById('myForm');
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
 
+  // -- Recupero valori dal form --
+  const nomeVal = document.getElementById('nome').value;
+  const cognomeVal = document.getElementById('cognome').value;
+  const sessoVal = document.getElementById('sesso').value;
+  const etaVal = document.getElementById('eta').value;
+  const emailVal = document.getElementById('email').value;
+  const giorniAllenamentoVal = document.getElementById('giorni_allenamento').value;
+  const tempoGiornoVal = document.getElementById('tempo_giorno').value;
+  const obiettiviVal = document.getElementById('obiettivi').value;
+  const cosaDisposizioneVal = document.getElementById('cosa_disposizione').value;
+  const eserciziFamigliariVal = document.getElementById('esercizi_famigliari').value;
+  const problemiArticolariVal = document.getElementById('problemi_articolari').value;
+  const condizioniFisicheVal = document.getElementById('condizioni_fisiche').value;
 
-  const phoneInputField = document.querySelector("#telefono");
-  const phoneInput = window.intlTelInput(phoneInputField, {
-    initialCountry: "it",                     // imposta l'Italia come predefinito
-    preferredCountries: ["it", "us", "gb"],   // paesi preferiti in alto alla lista
-    separateDialCode: true,                  // separa il prefisso dal numero
-    utilsScript:
-      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-  });
+  // Telefono con prefisso (se separateDialCode = true, unisci dialCode + input)
+  const fullPhoneNumber = phoneInput.getSelectedCountryData().dialCode 
+                          + " " 
+                          + phoneInputField.value;
 
-  // 3. Cattura l'evento submit del form
-  const form = document.getElementById('myForm');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+  // -- Prepara i parametri per EmailJS --
+  const templateParams = {
+    from_name: nomeVal + " " + cognomeVal,
+    to_name: "Luca",               // se usi {{to_name}} nel template
+    reply_to: emailVal,            // se usi {{reply_to}} nel template
+    nome: nomeVal,
+    cognome: cognomeVal,
+    sesso: sessoVal,
+    eta: etaVal,
+    email: emailVal,
+    telefono: fullPhoneNumber,
+    giorni_allenamento: giorniAllenamentoVal,
+    tempo_giorno: tempoGiornoVal,
+    obiettivi: obiettiviVal,
+    cosa_disposizione: cosaDisposizioneVal,
+    esercizi_famigliari: eserciziFamigliariVal,
+    problemi_articolari: problemiArticolariVal,
+    condizioni_fisiche: condizioniFisicheVal
+  };
 
-    // Recupero valori dal form
-    const nomeVal = document.getElementById('nome').value;
-    const cognomeVal = document.getElementById('cognome').value;
-    const sessoVal = document.getElementById('sesso').value;
-    const etaVal = document.getElementById('eta').value;
-    const emailVal = document.getElementById('email').value;
-    const giorniAllenamentoVal = document.getElementById('giorni_allenamento').value;
-    const tempoGiornoVal = document.getElementById('tempo_giorno').value;
-    const obiettiviVal = document.getElementById('obiettivi').value;
-    const cosaDisposizioneVal = document.getElementById('cosa_disposizione').value;
-    const eserciziFamigliariVal = document.getElementById('esercizi_famigliari').value;
-    const problemiArticolariVal = document.getElementById('problemi_articolari').value;
-    const condizioniFisicheVal = document.getElementById('condizioni_fisiche').value;
+  // -- Disabilita il pulsante e mostra lo spinner --
+  const submitBtn = document.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Invio... <span class="spinner"></span>';
 
-    // Telefono con prefisso
-    // Se hai usato separateDialCode = true, devi unire il prefisso + numero
-    const fullPhoneNumber = phoneInput.getSelectedCountryData().dialCode + " " + phoneInputField.value;
+  // -- Invia con EmailJS --
+  emailjs.send(
+    "service_gnv1iun",  // <-- Sostituisci con il tuo service ID
+    "template_4iu6kyb", // <-- Sostituisci con il tuo template ID
+    templateParams
+  ).then(
+    function(response) {
+      console.log("SUCCESS!", response.status, response.text);
+      alert("Messaggio inviato correttamente!");
 
-    // Prepara i parametri per EmailJS
-    // I NOMI di questi campi devono corrispondere ai placeholder nel tuo template
-    const templateParams = {
-      from_name: nomeVal + " " + cognomeVal,       // o come preferisci
-      to_name: "Luca",                             // facoltativo: se nel template hai {{to_name}}
-      reply_to: emailVal,                          // per "reply to" dell'email
-      nome: nomeVal,
-      cognome: cognomeVal,
-      sesso: sessoVal,
-      eta: etaVal,
-      email: emailVal,
-      telefono: fullPhoneNumber,                   // per {{telefono}}
-      giorni_allenamento: giorniAllenamentoVal,
-      tempo_giorno: tempoGiornoVal,
-      obiettivi: obiettiviVal,
-      cosa_disposizione: cosaDisposizioneVal,
-      esercizi_famigliari: eserciziFamigliariVal,
-      problemi_articolari: problemiArticolariVal,
-      condizioni_fisiche: condizioniFisicheVal
-    };
+      // Ripristina il pulsante
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Invia";
 
-    // 4. Invia con EmailJS
-    emailjs.send(
-      "service_gnv1iun",     // service id
-      "template_4iu6kyb",    // template id
-      templateParams
-    ).then(
-      function(response) {
-        console.log("SUCCESS!", response.status, response.text);
-        alert("Messaggio inviato correttamente!");
-        form.reset();
-      },
-      function(error) {
-        console.error("FAILED...", error);
-        alert("Si è verificato un errore durante l’invio.");
-      }
-    );
-  });
+      // Resetta il form
+      form.reset();
+    },
+    function(error) {
+      console.error("FAILED...", error);
+      alert("Si è verificato un errore durante l’invio.");
+
+      // Ripristina il pulsante anche in caso di errore
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Invia";
+    }
+  );
+});
