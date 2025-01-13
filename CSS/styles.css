@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+/* Banner con bordo decorativo */
+.banner {
+    margin-top: 40px;
+    border: 2px solid #FFD700;
+    padding: 20px;
+    position: relative;
+}
+.banner::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px dashed #FFD700;
+    opacity: 0.2;
+}
+.banner-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+}
+/* Logo e testo banner */
+.logo {
+    margin-bottom: 20px;
+    height: 18vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+.banner-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.banner-content p span {
+    color: #FFD700;
+}
+.banner-content h3 {
+    font-size: 24px;
+    color: #FFD700;
+    text-transform: uppercase;
+}
+/* Form e input */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #FFD700;
+    font-size: 15px;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #FFD700;
+    border-radius: 3px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+}
+.tall{
+    height: 20vh;
+}
+::placeholder {
+    color: #999;
+}
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ffbf00;
+}
+/* Layout su 2 colonne per alcune voci */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.col {
+    flex: 0 0 48%;
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width: 600px) {
+    .col {
+        flex: 0 0 100%;
+    }
+}
+/* Pulsante Invia */
+.button-container {
+    text-align: center;
+    margin: 30px 0 50px;
+    margin-top: 10vh;
+}
+button {
+    background: linear-gradient(90deg, #FFD700 0%, #a66f00 100%);
+    color: #000;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+button:hover {
+    transform: scale(1.05) translateY(5px) translateX(5px) translateZ(5px);
+}
+/* Sezione finale TEAM */
+.team-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12vh;
+    margin-bottom: 30px;
+}
+.team-text {
+    max-width: 450px;
+    margin-right: 20%;
+    margin-bottom: 20px;
+}
+.team-text h2 {
+    font-size: 36px;
+    color: #FFD700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.glow {
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+}
+.team-text .features {
+    border: 2px solid #FFD700;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.team-text .features p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.team-text .features p span {
+    color: #FFD700;
+    font-weight: bold;
+    margin-right: 10px;
+    border: 1px solid white;
+    padding: 6px;
+}
+.team-img {
+    position: absolute;
+    margin-left: 22%;
+    margin-right: auto;
+    max-width: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Allinea il contenuto orizzontalmente */
+.telefono-wrapper {
+    display: flex;       /* per mettere select e input sulla stessa linea */
+    align-items: center; /* per centrare verticalmente se serve */
+  }
+  
+  /* Stili generali dei tuoi input (assicurati di NON sovrascrivere la row e col) */
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #FFD700;
+    border-radius: 3px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  input[type="tel"]::placeholder {
+    color: #999;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Esempio di override per adattare intl-tel-input a tema scuro/dorato */
+
+/* Allarga se necessario: */
+.iti {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+  }
+  
+  /* Contenitore del prefisso selezionato */
+  .iti__selected-flag {
+    background-color: #000 !important;  /* Sfondo scuro */
+    color: #fff !important;            /* Testo chiaro */
+    border: 1px solid #FFD700 !important; /* Bordo dorato */
+  }
+  
+  /* Lista dei Paesi */
+  .iti__country-list {
+    background-color: #000 !important;    /* Sfondo scuro */
+    color: #fff !important;              /* Testo chiaro */
+    border: 1px solid #FFD700 !important; /* Bordo dorato */
+  }
+  
+  /* Ogni singolo Paese all’interno della lista */
+  .iti__country {
+    background-color: #000 !important; /* Sfondo scuro */
+    color: #fff !important;           /* Testo chiaro */
+  }
+  
+  /* Hover sul singolo Paese (opzionale, per evidenziarlo) */
+  .iti__country:hover {
+    background-color: #333 !important;
+  }
+  
+  /* Nome del Paese */
+  .iti__country .iti__country-name {
+    color: #fff !important;
+  }
+  
+  /* Prefisso numerico (ad es. +39, +1, etc.) */
+  .iti__country .iti__dial-code {
+    color: #FFD700 !important; /* Se vuoi rendere il prefisso dorato */
+  }
+  
+  /* Separatori interni, se presenti */
+  .iti__separator {
+    background-color: #000 !important;
+    color: #FFD700 !important;
+    opacity: 0.7; /* Regolalo a tuo gusto */
+  }
+  
+  .iti__flag-container{
+    height: 48px !important;
+    padding: 0 !important;
+  }

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo di contatto - Luca</title>
+
+  <!-- Collegamento al tuo file CSS -->
+  <link rel="stylesheet" href="CSS/styles.css">
+
+  <!-- Libreria per la gestione del prefisso con bandiere (intl-tel-input) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+  />
+</head>
+<body>
+  <div class="container">
+    <img src="RES/logo_lord.svg" alt="Logo" class="logo"/>
+
+    <div class="banner">
+      <div class="banner-content">
+        <p>
+          "Da oltre <span>10 anni</span> aiuto persone come te a trasformare la
+          propria vita. Con più di <span>300 successi</span> alle spalle, sono
+          sicuro di avere l'esperienza necessaria per guidarti verso il
+          raggiungimento del tuo <span>obiettivo</span>. Qualunque sia la tua meta,
+          ti accompagnerò, passo dopo passo, lungo il percorso che ti porterà al
+          <span>cambiamento</span> che desideri."
+        </p>
+        <h3>CHE COSA ASPETTI, COMPILA IL MODULO!</h3>
+      </div>
+    </div>
+
+    <!-- INIZIO FORM -->
+    <form id="myForm">
+      <!-- Riga con Nome e Cognome -->
+      <div class="row">        
+        <div class="col">
+          <label for="nome">Nome *</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Inserisci il tuo nome"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="cognome">Cognome *</label>
+          <input
+            type="text"
+            id="cognome"
+            name="cognome"
+            placeholder="Inserisci il tuo cognome"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Riga con Sesso e Età -->
+      <div class="row">
+        <div class="col">
+          <label for="sesso">Sesso *</label>
+          <select id="sesso" name="sesso" required>
+            <option value="">Seleziona</option>
+            <option value="Maschio">Maschio</option>
+            <option value="Femmina">Femmina</option>
+            <option value="Altro">Altro</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="eta">ETÀ *</label>
+          <input
+            type="number"
+            id="eta"
+            name="eta"
+            placeholder="Es: 23"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Riga con Telefono ed Email -->
+<!-- Riga con Telefono ed Email -->
+<div class="row">
+    <div class="col">
+      <label for="telefono">Numero di Telefono *</label>
+
+  
+        <input
+          type="tel"
+          id="telefono"
+          name="telefono"
+          placeholder="333 1234567"
+          required
+        />
+    </div>
+  
+    <div class="col">
+      <label for="email">Indirizzo Email *</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="example@example.com"
+        required
+      />
+    </div>
+  </div>
+  
+
+      <label for="giorni_allenamento">Numero Giorni in cui vuoi allenarti *</label>
+      <input
+        type="text"
+        id="giorni_allenamento"
+        name="giorni_allenamento"
+        placeholder="1,2,3,4..."
+        required
+      />
+
+      <label for="tempo_giorno">Tempo che puoi dedicare al giorno *</label>
+      <input
+        type="text"
+        id="tempo_giorno"
+        name="tempo_giorno"
+        placeholder="ad esempio 120 per 2 ore"
+        required
+      />
+
+      <label for="obiettivi">Quali sono i tuoi obiettivi? *</label>
+      <textarea
+        id="obiettivi"
+        class="tall"
+        name="obiettivi"
+        placeholder="Quando vuoi, descrivi i tuoi obiettivi qui..."
+        required
+      ></textarea>
+
+      <label for="cosa_disposizione">Cosa hai a disposizione per allenarti? *</label>
+      <textarea
+        id="cosa_disposizione"
+        class="tall"
+        name="cosa_disposizione"
+        placeholder="Inserisci qui l'attrezzatura o lo spazio di cui disponi..."
+        required
+      ></textarea>
+
+      <label for="esercizi_famigliari">Hai degli esercizi con cui sei più famigliare?</label>
+      <textarea
+        id="esercizi_famigliari"
+        class="tall"
+        name="esercizi_famigliari"
+        placeholder="Descrivi gli esercizi che conosci meglio..."
+      ></textarea>
+
+      <label for="problemi_articolari">Hai problemi articolari?</label>
+      <textarea
+        id="problemi_articolari"
+        class="tall"
+        name="problemi_articolari"
+        placeholder="Indica eventuali problematiche o condizioni articolari..."
+      ></textarea>
+
+      <label for="condizioni_fisiche">
+        Hai condizioni fisiche o problemi di salute di cui dovrei essere a conoscenza?
+      </label>
+      <textarea
+        id="condizioni_fisiche"
+        class="tall"
+        name="condizioni_fisiche"
+        placeholder="Specifica eventuali problemi di salute, infortuni, allergie..."
+      ></textarea>
+
+      <!-- Sezione TEAM -->
+      <div class="team-section">
+        <div class="team-text">
+          <h2>
+            <span style="color: white;">ENTRA NEL</span><br>
+            <span class="glow">TEAM!</span>
+          </h2>
+          <div class="features">
+            <p><span>X</span> PREPARAZIONE ATLETICA</p>
+            <p><span>X</span> ALLENAMENTI PERSONALIZZATI</p>
+            <p><span>X</span> SPECIALIZZATO IN ALLENAMENTI ENDURANCE</p>
+          </div>
+        </div>
+        <img src="RES/foto_lord_frontale.png" alt="Personal Trainer" class="team-img"/>
+      </div>
+
+      <!-- Pulsante Invia -->
+      <div class="button-container">
+        <button type="submit">Invia</button>
+      </div>
+    </form>
+    <!-- FINE FORM -->
+  </div>
+
+  <!-- Script per intl-tel-input -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script src="JS/script.js"></script>
+</body>
+</html>
