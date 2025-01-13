@@ -314,3 +314,37 @@ button:hover {
     height: 48px !important;
     padding: 0 !important;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    color: #999; /* oppure #fff, se preferisci */
+    font-size: 14px;
+    border-top: 1px solid #FFD700; /* per un tocco dorato in alto */
+  }
+  
+  .footer a {
+    color: #FFD700;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
