@@ -30,6 +30,7 @@ form.addEventListener('submit', function(e) {
   const eserciziFamiliariVal = document.getElementById('esercizi_familiari').value;
   const problemiArticolariVal = document.getElementById('problemi_articolari').value;
   const condizioniFisicheVal = document.getElementById('condizioni_fisiche').value;
+  const problemiVal = document.getElementById('problemi').value;
 
   // Telefono con prefisso (se separateDialCode = true, unisci dialCode + input)
   const fullPhoneNumber = phoneInput.getSelectedCountryData().dialCode 
@@ -53,7 +54,8 @@ form.addEventListener('submit', function(e) {
     cosa_disposizione: cosaDisposizioneVal,
     esercizi_familiari: eserciziFamiliariVal,
     problemi_articolari: problemiArticolariVal,
-    condizioni_fisiche: condizioniFisicheVal
+    condizioni_fisiche: condizioniFisicheVal,
+    problemi: problemiVal
   };
 
   // -- Disabilita il pulsante e mostra lo spinner --
